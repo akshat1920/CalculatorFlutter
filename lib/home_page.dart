@@ -44,10 +44,10 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _button("7", _zero),
-                      _button("8", _zero),
-                      _button("9", _zero),
-                      _button("/", _zero),
+                      _button("7", _seven),
+                      _button("8", _eight),
+                      _button("9", _nine),
+                      _button("/", _div),
 
                     ],
                   ),
@@ -55,10 +55,10 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _button("4", _zero),
-                      _button("5", _zero),
-                      _button("6", _zero),
-                      _button("*", _zero),
+                      _button("4", _four),
+                      _button("5", _five),
+                      _button("6", _six),
+                      _button("*", _mul),
 
                     ],
                   ),
@@ -66,10 +66,10 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _button("1", _zero),
-                      _button("2", _zero),
-                      _button("3", _zero),
-                      _button("-", _zero),
+                      _button("1", _one),
+                      _button("2", _two),
+                      _button("3", _three),
+                      _button("-", _sub),
 
                     ],
                   ),
@@ -77,10 +77,10 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _button(".", _zero),
+                      _button(".", _deci),
                       _button("0", _zero),
-                      _button("=", _zero),
-                      _button("+", _zero),
+                      _button("=", _result),
+                      _button("+", _add),
 
                     ],
                   ),
@@ -113,11 +113,143 @@ Widget _button(String number, Function() f){
 }
 
   _zero() {
-    ansStr = '100';
+    ansStr = '0' + ansStr;
     setState(() {
       '$ansStr';
     });
+
   }
+
+  _one() {
+    ansStr = '1' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _two() {
+    ansStr = '2' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _three() {
+    ansStr = '3' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _four() {
+    ansStr = '4' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _five() {
+    ansStr = '5' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _six() {
+    ansStr = '6' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _seven() {
+    ansStr = '7' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _eight() {
+    ansStr = '8' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _nine() {
+    ansStr = '9' + ansStr;
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _add() {
+    ansStr = '+';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _sub() {
+    ansStr = '-';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _mul() {
+    ansStr = '*';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _div() {
+    ansStr = '/';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _clr() {
+    ansStr = '0';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _deci() {
+    ansStr = '.';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+  _result() {
+    ansStr = '0';
+    setState(() {
+      '$ansStr';
+    });
+
+  }
+
+
+
 }
 
 
