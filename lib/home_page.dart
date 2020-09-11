@@ -11,6 +11,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   var ansStr = "0";
+  int a,b;
+  var num = "0";
+  var op = "0";
+  int res = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +33,13 @@ class _HomePageState extends State<HomePage> {
                         height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 100.0
                     ),
                     alignment: Alignment.bottomRight,
-                    color: Colors.black54,
+                    color: Colors.white,
 
                     child: Text(
                       "$ansStr",
                       style: TextStyle(
                           fontSize: 50.0,
-                          color: Colors.white
+                          color: Colors.black54
                       ),
                       textAlign: TextAlign.right,
                     ),
@@ -77,9 +81,9 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      _button(".", _deci),
+                      _button("AC", _allclr),
                       _button("0", _zero),
-                      _button("=", _result),
+                      _button("=", _display),
                       _button("+", _add),
 
                     ],
@@ -113,139 +117,210 @@ Widget _button(String number, Function() f){
 }
 
   _zero() {
-    ansStr = '0' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '0';
     });
 
   }
 
   _one() {
-    ansStr = '1' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '1';
     });
 
   }
 
   _two() {
-    ansStr = '2' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '2';
     });
 
   }
 
   _three() {
-    ansStr = '3' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '3';
     });
 
   }
 
   _four() {
-    ansStr = '4' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '4';
     });
 
   }
 
   _five() {
-    ansStr = '5' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '5';
     });
 
   }
 
   _six() {
-    ansStr = '6' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '6';
     });
 
   }
 
   _seven() {
-    ansStr = '7' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '7';
     });
 
   }
 
   _eight() {
-    ansStr = '8' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '8';
     });
 
   }
 
   _nine() {
-    ansStr = '9' + ansStr;
+
     setState(() {
-      '$ansStr';
+      ansStr = ansStr + '9';
     });
 
   }
 
   _add() {
-    ansStr = '+';
-    setState(() {
-      '$ansStr';
-    });
+    print(a);
+    a = int.parse(ansStr);
 
+
+//    if(ansStr == "+"){
+//
+//
+//    }
+//
+//    else{
+//      _result();
+//    }
+
+
+    op = "+";
+    setState(() {ansStr = '+';});
+
+    print(a);
   }
 
   _sub() {
-    ansStr = '-';
+
+    a = int.parse(ansStr);
+    //_result();
+    op = "-";
+
     setState(() {
-      '$ansStr';
+      ansStr = '-';
     });
 
   }
 
   _mul() {
-    ansStr = '*';
+
+    a = int.parse(ansStr);
+    //_result();
+    op = "*";
+
     setState(() {
-      '$ansStr';
+      ansStr = '*';
     });
 
   }
 
   _div() {
-    ansStr = '/';
+
+    a = int.parse(ansStr);
+    //_result();
+    op = "/";
+
     setState(() {
-      '$ansStr';
+      ansStr = '/';
     });
 
   }
 
-  _clr() {
-    ansStr = '0';
+  _allclr() {
+
+    a=0;
+    b=0;
+    res = 0;
+    ansStr = 0.toString();
     setState(() {
-      '$ansStr';
+      ansStr = '0';
     });
 
   }
 
-  _deci() {
-    ansStr = '.';
-    setState(() {
-      '$ansStr';
-    });
-
-  }
 
   _result() {
-    ansStr = '0';
-    setState(() {
-      '$ansStr';
-    });
+    
 
+      b = int.parse(ansStr.substring(1,ansStr.length));
+
+
+//        print(a);
+
+        switch(op){
+          case "+":
+            {
+
+              res = (a + b);
+            }break;
+
+          case "-":
+            {
+
+              res = (a - b);
+            }break;
+
+          case "*":
+            {
+
+              res = (a * b);
+            }break;
+
+          case "/":
+            {
+
+              res = (a / b) as int;
+            }break;
+
+
+        }
+
+      }
+
+
+
+
+  _display(){
+
+    if(ansStr.length == 1) {
+      ansStr = a.toString();
+    }
+    else {
+      _result();
+    }
+
+    print(a);
+
+    setState(() {
+      ansStr = res.toString();
+    });
   }
 
 
