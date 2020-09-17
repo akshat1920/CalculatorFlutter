@@ -107,11 +107,50 @@ class _HomePageState extends State<HomePage> {
                     iconSize: 30,
                     onPressed: (){
                       showModalBottomSheet(context: context, builder: (builder){
-                        return Container(
-                          child: Text("Hello chuitye, noob ne aakhirkar bana hi diya kuch achha"),
-                          padding: EdgeInsets.all(60.0),
-                          
+                        return Column(
+                          children: [
+                          ListTile(
+                          leading: Icon(
+                          Icons.print,
+                          ),
+                          trailing: Icon(
+                          Icons.timeline
+                          ),
+                          title: Text("Hello Akshat"),
+                          subtitle: Text("kuch bhi"),
+                            onTap: (){},
 
+                          ),
+
+                        ListTile(
+                        leading: Icon(
+                        Icons.print,
+                        ),
+                        trailing: Icon(
+                        Icons.timeline
+                        ),
+                        title: Text("Hello Akshat"),
+                        subtitle: Text("yeye iska naam to"),
+                          onTap: (){},
+
+                        ),
+
+                            ListTile(
+                              leading: Icon(
+                                Icons.print,
+                              ),
+                              trailing: Icon(
+                                  Icons.timeline
+                              ),
+                              title: Text("Hello Akshat"),
+                              subtitle: Text("yeye iska naam to"),
+                              onTap: (){},
+
+                            ),
+
+
+
+                          ],
                         );
                       });
                     },
