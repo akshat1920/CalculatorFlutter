@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
@@ -96,6 +97,26 @@ class _HomePageState extends State<HomePage> {
 
                     ],
                   ),
+
+                  IconButton(
+                    padding: EdgeInsets.all(10.0),
+                    icon: Icon(
+                      Icons.keyboard_arrow_up,
+
+                    ),
+                    iconSize: 30,
+                    onPressed: (){
+                      showModalBottomSheet(context: context, builder: (builder){
+                        return Container(
+                          child: Text("Hello chuitye, noob ne aakhirkar bana hi diya kuch achha"),
+                          padding: EdgeInsets.all(60.0),
+                          
+
+                        );
+                      });
+                    },
+                  ),
+
                 ],
               ),
             )
