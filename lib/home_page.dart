@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+
 
 class HomePage extends StatefulWidget {
 
@@ -15,6 +19,8 @@ class _HomePageState extends State<HomePage> {
   var num = "0";
   var op = "0";
   int res = 0;
+  int ctr = 0;
+  double divide = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -30,10 +36,10 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   Container(
                     constraints: BoxConstraints.expand(
-                        height: Theme.of(context).textTheme.display1.fontSize * 1.1 + 100.0
+                        height: Theme.of(context).textTheme.bodyText1.fontSize * 1 + 100.0
                     ),
                     alignment: Alignment.bottomRight,
-                    color: Colors.white,
+                    color: Colors.white10,
 
                     child: Text(
                       "$ansStr",
@@ -41,9 +47,11 @@ class _HomePageState extends State<HomePage> {
                           fontSize: 50.0,
                           color: Colors.black54
                       ),
-                      textAlign: TextAlign.right,
+                      textAlign: TextAlign.left,
                     ),
                   ),
+
+
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,15 +114,31 @@ class _HomePageState extends State<HomePage> {
 
 
 Widget _button(String number, Function() f){
-  return MaterialButton(
-    height: 100.0,
+  return FlatButton(
+    padding: EdgeInsets.all(25.0),
+    // height: 100.0,
+    highlightColor: Colors.blue,
+    splashColor: Colors.blueAccent,
+    onHighlightChanged: _change(),
+    // elevation: 10,
+    // highlightElevation: 0,
+    shape: CircleBorder(
+    ),
+
     child: Text(number,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0),),
+      style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28.0),),
     textColor: Colors.black,
-    color: Colors.grey[100],
+    // color: Colors.grey[100],
     onPressed: f,
   );
 }
+
+//  _oneup() {
+//   pow("ansStr",number);
+//    setState(() {
+//
+//    });
+//  }
 
   _zero() {
 
@@ -198,58 +222,89 @@ Widget _button(String number, Function() f){
 
   _add() {
     print(a);
-    a = int.parse(ansStr);
+    // a = int.parse(ansStr);
+
+    if(ctr == 0){
+      a = int.parse(ansStr);
+    }
+    else{
+      _result();
+      a = res;
+      print(ctr);
+    }
 
 
-//    if(ansStr == "+"){
-//
-//
-//    }
-//
-//    else{
-//      _result();
-//    }
 
 
     op = "+";
     setState(() {ansStr = '+';});
+
+    ctr = ctr + 1;
 
     print(a);
   }
 
   _sub() {
 
-    a = int.parse(ansStr);
-    //_result();
+    if(ctr == 0){
+      a = int.parse(ansStr);
+    }
+    else{
+      _result();
+      a = res;
+      print(ctr);
+    }
+
     op = "-";
 
     setState(() {
       ansStr = '-';
     });
 
+    ctr = ctr + 1;
+
   }
 
   _mul() {
 
-    a = int.parse(ansStr);
-    //_result();
+    if(ctr == 0){
+      a = int.parse(ansStr);
+    }
+    else{
+      _result();
+      a = res;
+      print(ctr);
+    }
+
     op = "*";
 
     setState(() {
       ansStr = '*';
     });
 
+    ctr = ctr + 1;
+
   }
 
   _div() {
 
-    a = int.parse(ansStr);
-    //_result();
+    if(ctr == 0){
+      a = int.parse(ansStr);
+    }
+    else{
+      _result();
+      a = res;
+      print(ctr);
+    }
     op = "/";
 
     setState(() {
       ansStr = '/';
     });
+
+    print(a);
+
+    ctr = ctr + 1;
 
   }
 
@@ -258,6 +313,7 @@ Widget _button(String number, Function() f){
     a=0;
     b=0;
     res = 0;
+    ctr = 0;
     ansStr = 0.toString();
     setState(() {
       ansStr = '0';
@@ -279,24 +335,29 @@ Widget _button(String number, Function() f){
             {
 
               res = (a + b);
+              ansStr = res.toString();
             }break;
 
           case "-":
             {
 
               res = (a - b);
+              ansStr = res.toString();
             }break;
 
           case "*":
             {
 
               res = (a * b);
+              ansStr = res.toString();
             }break;
 
           case "/":
             {
 
-              res = (a / b) as int;
+              divide = (a / b);
+              ansStr = divide.toString();
+              // res = divide.toInt();
             }break;
 
 
@@ -319,10 +380,13 @@ Widget _button(String number, Function() f){
     print(a);
 
     setState(() {
-      ansStr = res.toString();
+
     });
   }
 
+  _change() {
+
+  }
 
 
 }
