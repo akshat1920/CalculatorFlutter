@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:calculator/main.dart';
+import 'package:calculator/weather.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
@@ -27,6 +29,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
             appBar: AppBar(
+              leading: Icon(
+                Icons.mood,
+              ),
+
 
               title: Text("Calculator"),
             ),
@@ -116,9 +122,15 @@ class _HomePageState extends State<HomePage> {
                           trailing: Icon(
                           Icons.timeline
                           ),
-                          title: Text("Hello Akshat"),
+                          title: Text("Weather"),
                           subtitle: Text("kuch bhi"),
-                            onTap: (){},
+                            onTap: (){
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => Weather()
+                                  )
+                              );
+                            }
 
                           ),
 
