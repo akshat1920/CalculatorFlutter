@@ -8,7 +8,7 @@ import 'package:pdf_viewer_plugin/pdf_viewer_plugin.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:http/http.dart' as http;
 
-void main() => runApp(Weather());
+
 
 class Weather extends StatefulWidget {
 
@@ -92,8 +92,11 @@ class _MyAppState extends State<Weather> {
                   ),
                 )
               else
-                Center(
-                    child: CircularProgressIndicator(),
+                Container(
+                  padding: EdgeInsets.fromLTRB(0.0, 300.0, 0.0, 0.0),
+                    child: CircularProgressIndicator(
+
+                    ),
 
                 )
 

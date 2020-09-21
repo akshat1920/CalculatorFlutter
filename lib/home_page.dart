@@ -1,10 +1,10 @@
 import 'dart:math';
 
+import 'package:calculator/images.dart';
 import 'package:calculator/main.dart';
 import 'package:calculator/weather.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -29,9 +29,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
             appBar: AppBar(
-              leading: Icon(
-                Icons.mood,
+
+              leading:  CircleAvatar(
+                radius: 55,
+                backgroundColor: Colors.black,
+                child: CircleAvatar(
+
+                  radius: 26,
+                  backgroundImage: AssetImage('assets/profile_pic.jpg'),
+
+                ),
               ),
+
+
 
 
               title: Text("Calculator"),
@@ -77,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                       _button("4", _four),
                       _button("5", _five),
                       _button("6", _six),
-                      _button("*", _mul),
+                      _button("×", _mul),
 
                     ],
                   ),
@@ -123,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                           Icons.timeline
                           ),
                           title: Text("Weather"),
-                          subtitle: Text("kuch bhi"),
+                          // subtitle: Text("kuch bhi"),
                             onTap: (){
                               Navigator.push(
                                   context,
@@ -141,9 +151,14 @@ class _HomePageState extends State<HomePage> {
                         trailing: Icon(
                         Icons.timeline
                         ),
-                        title: Text("Hello Akshat"),
-                        subtitle: Text("yeye iska naam to"),
-                          onTap: (){},
+                        title: Text("Images"),
+                          onTap: (){
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => CarouselDemo()
+                                )
+                            );
+                          },
 
                         ),
 
@@ -186,21 +201,23 @@ class _HomePageState extends State<HomePage> {
 
 
 Widget _button(String number, Function() f){
-  return FlatButton(
-    padding: EdgeInsets.all(25.0),
+  return MaterialButton(
+    padding: EdgeInsets.all(22.0),
     // height: 100.0,
-    highlightColor: Colors.blue,
-    splashColor: Colors.blueAccent,
-    onHighlightChanged: _change(),
-    // elevation: 10,
-    // highlightElevation: 0,
-    shape: CircleBorder(
+    highlightColor: Colors.orange[300],
+
+    splashColor: Colors.orangeAccent,
+
+    elevation: 3,
+    highlightElevation: 0,
+    shape: CircleBorder(side: BorderSide(
+    color: Colors.blueAccent, width: 1.0,style: BorderStyle.solid)
     ),
 
     child: Text(number,
       style: TextStyle(fontWeight: FontWeight.w400, fontSize: 28.0),),
     textColor: Colors.black,
-    // color: Colors.grey[100],
+    color: Colors.grey[100],
     onPressed: f,
   );
 }
@@ -456,9 +473,7 @@ Widget _button(String number, Function() f){
     });
   }
 
-  _change() {
 
-  }
 
 
 }
